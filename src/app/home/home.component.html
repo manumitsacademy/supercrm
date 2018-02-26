@@ -1,0 +1,11 @@
+<input type="text" #n>
+<input type="text" #a>
+<button (click)="save(n.value,a.value)">Save</button>
+<hr>
+
+<ul>
+  <li *ngFor="let i of d" (click)="show(i)" [title]="disp_title">
+    {{i.name}}
+  </li>
+</ul>
+<app-details [a]="c_d"></app-details>
