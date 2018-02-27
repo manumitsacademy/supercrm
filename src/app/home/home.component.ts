@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
   disp_title="click to view full details";
   d=[];
+  events=["One","two"];
   c_d;
-  constructor() { }
+
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+        'thumbs-up',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
+  }
 
   ngOnInit() {
   }
