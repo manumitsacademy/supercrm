@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { MatButtonModule, MatCheckboxModule} from '@angular/material';
 
-@NgModule({
-  imports: [MatButtonModule, MatCheckboxModule,MatSlideToggleModule]
-})
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

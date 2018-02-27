@@ -1,5 +1,49 @@
-<input type="text" #n>
-<input type="text" #a>
+<a routerLink="/abc">Deepthi</a>
+<a routerLink="/xyz">Radhika</a><br>
+<router-outlet></router-outlet>
+
+<br>
+<br>
+<br>
+<button mat-button>Basic</button>
+<button mat-raised-button color="primary">Primary</button>
+
+<hr>
+<button mat-button [matMenuTriggerFor]="menu2">Menu</button>
+<mat-menu #menu2="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<hr>
+<section class="example-section">
+    <mat-slide-toggle
+        class="example-margin"
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled">
+      Slide me!
+    </mat-slide-toggle>
+  </section>
+<hr>
+
+<mat-radio-group class="example-radio-group">
+    <mat-radio-button class="example-radio-button">
+      {{season}}
+    </mat-radio-button>
+  </mat-radio-group>
+  
+<hr>
+<mat-checkbox >Checked</mat-checkbox>
+<hr>
+<mat-form-field >
+  <input matInput placeholder="Enter the Name" #n>
+</mat-form-field>
+
+<mat-form-field >
+    <input matInput placeholder="Enter the Age" #a>
+</mat-form-field>
+
+
 <button (click)="save(n.value,a.value)">Save</button>
 <hr>
 
