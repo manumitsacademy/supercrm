@@ -14,6 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatExpansionModule} from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -72,6 +74,8 @@ const r : Routes = [
     MatMenuModule,
     MatSidenavModule,
     MatIconModule,
+    MatToolbarModule,
+    MatExpansionModule,
     RouterModule.forRoot(r)
   ],
   providers: [StudentsService],

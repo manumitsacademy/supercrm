@@ -1,102 +1,63 @@
-
-
-<a routerLink="/students">List of Student</a>
-<a routerLink="/batches">List of Batches</a>
-<router-outlet></router-outlet>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
-<mat-icon svgIcon="thumbs-up"></mat-icon>
-<mat-sidenav-container (backdropClick)="close('backdrop')">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-               (closed)="events.push('close!')">
-    Sidenav content
+<mat-toolbar color="primary">  
+  <mat-toolbar-row>
+    <button mat-button (click)="sidenav.toggle()">
+      <i class="material-icons">menu</i>
+    </button>  
+    <button mat-button [matMenuTriggerFor]="menu">Leads</button>
+    <button mat-button>Batches</button>
+    <button mat-button>Payments</button>
+    <button mat-button>Settings</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Management Panel</button>
+      <button mat-menu-item>Admin Panel</button>
+    </mat-menu> 
+  </mat-toolbar-row>      
+</mat-toolbar>
+<mat-sidenav-container
+    class="example-container" (backdropClick)="close('backdrop')" >
+  <mat-sidenav #sidenav mode="side" (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Close</button></p>
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Courses
+            </mat-panel-title>      
+          </mat-expansion-panel-header>
+          <p><a>View Courses</a></p>
+          <p><a>Add Course</a></p>
+          <p><a>Edit Courses</a></p>
+          <p><a>Delete Courses</a></p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Students
+            </mat-panel-title>      
+          </mat-expansion-panel-header>
+          <p><a>View Students</a></p>
+          <p><a>Add Students</a></p>
+          <p><a>Edit Students</a></p>
+          <p><a>Delete Students</a></p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Programmes
+            </mat-panel-title>      
+          </mat-expansion-panel-header>
+          <p><a>View Programmes</a></p>
+          <p><a>Add Programme</a></p>
+          <p><a>Edit Programme</a></p>
+          <p><a>Delete Programmes</a></p>
+        </mat-expansion-panel>
+      </mat-accordion>
   </mat-sidenav>
-
   <mat-sidenav-content>
-    <p></p>
-    <p>Events:</p>    
+    <h1 *ngFor="let i of result">{{i.name}}</h1>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<hr>
-
-<a routerLink="/abc">Deepthi</a>
-<a routerLink="/xyz">Radhika</a><br>
-<router-outlet></router-outlet>
-
-<br>
-<br>
-<br>
-<button mat-button>Basic</button>
-<button mat-raised-button color="primary">Primary</button>
-
-<hr>
-<button mat-button [matMenuTriggerFor]="menu2">Menu</button>
-<mat-menu #menu2="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-<hr>
-<section class="example-section">
-    <mat-slide-toggle
-        class="example-margin"
-        [color]="color"
-        [checked]="checked"
-        [disabled]="disabled">
-      Slide me!
-    </mat-slide-toggle>
-  </section>
-<hr>
-
-<mat-radio-group class="example-radio-group">
-    <mat-radio-button class="example-radio-button">
-      {{season}}
-    </mat-radio-button>
-  </mat-radio-group>
-  
-<hr>
-<mat-checkbox >Checked</mat-checkbox>
-<hr>
-<mat-form-field >
-  <input matInput placeholder="Enter the Name" #n>
-</mat-form-field>
-
-<mat-form-field >
-    <input matInput placeholder="Enter the Age" #a>
-</mat-form-field>
-
-
-<button (click)="save(n.value,a.value)">Save</button>
-<hr>
-
-<ul>
-  <li *ngFor="let i of d" (click)="show(i)" [title]="disp_title">
-    {{i.name}}
-  </li>
-</ul>
-<app-details [a]="c_d"></app-details>
--->
