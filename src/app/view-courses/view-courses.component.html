@@ -1,5 +1,8 @@
 <div>
   <ul>
-    <li *ngFor="let course of courses">{{course.coursename}}</li>
+    <li *ngFor="let course of courses">{{course.coursename}}
+      <mat-icon>create</mat-icon>
+      <mat-icon (click)="deleteCourse(course)">delete</mat-icon>
+    </li>
   </ul>
 </div>

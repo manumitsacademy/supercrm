@@ -52,6 +52,7 @@ const r : Routes = [
   {path:"",component:HomeDetailsComponent},
   {path:"addCourse",component:AddCourseComponent},
   {path:"viewCourses",component:ViewCoursesComponent}
+ 
 ];
 
 @NgModule({
