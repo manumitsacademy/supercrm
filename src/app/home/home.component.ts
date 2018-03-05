@@ -4,11 +4,13 @@ import {MatSidenav} from '@angular/material/sidenav';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
 import { HttpClient } from '@angular/common/http';
+import { CoursesService } from '../courses.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  providers:[CoursesService]
   
 })
 export class HomeComponent implements OnInit {
@@ -22,11 +24,12 @@ export class HomeComponent implements OnInit {
   }
 
   shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
-  constructor(private httpClient: HttpClient) {}
-
+  
+  constructor(private httpClient: HttpClient,public coursesService:CoursesService) {}
+  courses;
   ngOnInit() {
-    this.httpClient
-    .get("http://localhost:3200/getMovies")
-    .subscribe((d)=>{this.result=d});
+    this.coursesService.getCourses().subscribe((d)=>{console.log(d)});
+    console.log("Hello Async")
+   
   }
 }

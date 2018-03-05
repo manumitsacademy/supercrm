@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatExpansionModule} from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -30,7 +32,13 @@ import { RadikaComponent } from './radika/radika.component';
 import { TestrouteComponent } from './testroute/testroute.component';
 import { StudetsListComponent } from './studets-list/studets-list.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { HomeDetailsComponent } from './home-details/home-details.component';
+import { AddCourseComponent } from './add-course/add-course.component';
+import { ViewCoursesComponent } from './view-courses/view-courses.component';
+
+
 import { StudentsService } from './students.service';
+import { CoursesService } from './courses.service';
 
 const r : Routes = [
   
@@ -39,10 +47,11 @@ const r : Routes = [
       {path:':name',component:StudentDetailsComponent}
     ]
   },
-  {path:"batches",component:DeeptiComponent},
-  {path:"abc",component:DeeptiComponent},
   {path:"abc/:id",component:TestrouteComponent},
-  {path:"xyz",component:RadikaComponent}
+  {path:"radika",component:RadikaComponent},
+  {path:"",component:HomeDetailsComponent},
+  {path:"addCourse",component:AddCourseComponent},
+  {path:"viewCourses",component:ViewCoursesComponent}
 ];
 
 @NgModule({
@@ -59,11 +68,15 @@ const r : Routes = [
     RadikaComponent,
     TestrouteComponent,
     StudetsListComponent,
-    StudentDetailsComponent
+    StudentDetailsComponent,
+    HomeDetailsComponent,
+    AddCourseComponent,
+    ViewCoursesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatCheckboxModule,
     MatFormFieldModule,
@@ -76,6 +89,7 @@ const r : Routes = [
     MatIconModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatListModule,
     RouterModule.forRoot(r)
   ],
   providers: [StudentsService],

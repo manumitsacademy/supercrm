@@ -3,6 +3,7 @@
     <button mat-button (click)="sidenav.toggle()">
       <i class="material-icons">menu</i>
     </button>  
+    <button mat-button routerLink="/">Home</button>
     <button mat-button [matMenuTriggerFor]="menu">Leads</button>
     <button mat-button>Batches</button>
     <button mat-button>Payments</button>
@@ -24,8 +25,8 @@
               Courses
             </mat-panel-title>      
           </mat-expansion-panel-header>
-          <p><a>View Courses</a></p>
-          <p><a>Add Course</a></p>
+          <p><a routerLink="/viewCourses">View Courses</a></p>
+          <p><a routerLink="/addCourse">Add Course</a></p>
           <p><a>Edit Courses</a></p>
           <p><a>Delete Courses</a></p>
         </mat-expansion-panel>
@@ -57,7 +58,8 @@
         </mat-expansion-panel>
       </mat-accordion>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <h1 *ngFor="let i of result">{{i.name}}</h1>
+  <mat-sidenav-content class="paddingclass">
+    <h1>{{courses|json}}</h1>
+    <router-outlet ></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
