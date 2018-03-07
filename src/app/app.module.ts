@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -35,6 +36,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { HomeDetailsComponent } from './home-details/home-details.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
+import { editcoursedialog } from './view-courses/view-courses.component'
 
 
 import { StudentsService } from './students.service';
@@ -71,7 +73,8 @@ const r : Routes = [
     StudentDetailsComponent,
     HomeDetailsComponent,
     AddCourseComponent,
-    ViewCoursesComponent
+    ViewCoursesComponent,
+    editcoursedialog
   ],
   imports: [
     BrowserModule,
@@ -90,8 +93,10 @@ const r : Routes = [
     MatToolbarModule,
     MatExpansionModule,
     MatListModule,
+    MatDialogModule,
     RouterModule.forRoot(r)
   ],
+  entryComponents:[ViewCoursesComponent,editcoursedialog],
   providers: [StudentsService],
   bootstrap: [HomeComponent]
 })
