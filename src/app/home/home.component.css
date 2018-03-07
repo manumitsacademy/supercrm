@@ -1,6 +1,10 @@
 mat-sidenav-content{
     height:600px;
 }
+/* mat-sidenav-container{
+    height: 100%;
+} */
+
 .paddingclass{
     padding-left:20px;
 }

@@ -18,4 +18,7 @@ export class CoursesService {
     });
     return myObservable;
   }
+  getCoursebyName(){
+    
+  }
 }
