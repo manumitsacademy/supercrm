@@ -2,6 +2,7 @@
   <ul>
     <li *ngFor="let course of courses">{{course.coursename}}
       <mat-icon (click)="deleteCourse(course)">delete</mat-icon>
+      <mat-icon (click)="editcourse(course)">create</mat-icon>
     </li>
   </ul>
 </div>

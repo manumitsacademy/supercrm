@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModel } from '@angular/forms'
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -36,6 +38,7 @@ import { HomeDetailsComponent } from './home-details/home-details.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { editcoursedialog } from './view-courses/view-courses.component'
 
 
 import { StudentsService } from './students.service';
@@ -78,7 +81,8 @@ const r : Routes = [
     AddCourseComponent,
     ViewCoursesComponent,
     AddStudentComponent,
-    ViewStudentComponent
+    ViewStudentComponent,
+    editcoursedialog
   ],
   imports: [
     BrowserModule,
@@ -97,8 +101,11 @@ const r : Routes = [
     MatToolbarModule,
     MatExpansionModule,
     MatListModule,
+    MatDialogModule,
+    FormsModule,
     RouterModule.forRoot(r)
   ],
+  entryComponents:[ViewCoursesComponent,editcoursedialog],
   providers: [StudentsService],
   bootstrap: [HomeComponent]
 })
