@@ -17,7 +17,7 @@ export class ViewCoursesComponent implements OnInit {
   display;
   ngOnInit() {
     
-    this.httpClient.get("https://api.mlab.com/api/1/databases/test_db/collections/courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
+    this.httpClient.get("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
                     .subscribe((d)=>{
                         this.courses=d;
                         console.log("this is data"+d);
@@ -28,18 +28,16 @@ export class ViewCoursesComponent implements OnInit {
   deleteCourse(v)
   {
     console.log(v._id.$oid)
-    var url = "https://api.mlab.com/api/1/databases/test_db/collections/courses/"+v._id.$oid+"?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo"
+    var url = "https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/"+v._id.$oid+"?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo"
     console.log(url)
     this.httpClient.delete(url).subscribe((d)=>{
     console.log(d)
    
-    this.httpClient.get("https://api.mlab.com/api/1/databases/test_db/collections/courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
+    this.httpClient.get("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
     .subscribe((d)=>{
         this.courses=d;
         console.log("this is data"+d);
     });
   });
-   
-
   }
 }

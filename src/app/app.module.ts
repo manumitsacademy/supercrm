@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,10 +35,12 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { HomeDetailsComponent } from './home-details/home-details.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
+import { AddStudentComponent } from './add-student/add-student.component';
 
 
 import { StudentsService } from './students.service';
 import { CoursesService } from './courses.service';
+import { ViewStudentComponent } from './view-student/view-student.component';
 
 const r : Routes = [
   
@@ -51,7 +53,9 @@ const r : Routes = [
   {path:"radika",component:RadikaComponent},
   {path:"",component:HomeDetailsComponent},
   {path:"addCourse",component:AddCourseComponent},
-  {path:"viewCourses",component:ViewCoursesComponent}
+  {path:"viewCourses",component:ViewCoursesComponent},
+  {path:"addStudent",component:AddStudentComponent},
+  {path:"viewStudents",component:ViewStudentComponent}
  
 ];
 
@@ -72,7 +76,9 @@ const r : Routes = [
     StudentDetailsComponent,
     HomeDetailsComponent,
     AddCourseComponent,
-    ViewCoursesComponent
+    ViewCoursesComponent,
+    AddStudentComponent,
+    ViewStudentComponent
   ],
   imports: [
     BrowserModule,

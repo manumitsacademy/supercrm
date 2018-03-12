@@ -1,0 +1,16 @@
+<form [formGroup]= "studentForm">
+  
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="First Name" formControlName="FirstName">
+    </mat-form-field><br>
+ 
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Last Name" formControlName="LastName">
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Age" formControlName="Age">
+    </mat-form-field><br>
+ 
+  <button mat-raised-button color="primary" (click)="addStudent()">Add Student</button>
+</form>
