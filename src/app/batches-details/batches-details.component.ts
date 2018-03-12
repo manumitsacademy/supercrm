@@ -18,6 +18,7 @@ export class BatchesDetailsComponent implements OnInit {
     batchid: new FormControl(),
     batchstartdate: new FormControl(),
   });
+  test=123;
   Apikey= "?apiKey=ZShQtoghVlx_ZFHYiZa6I0dRCgdoGr--"
 
   createBatch(){
