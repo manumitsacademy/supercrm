@@ -19,7 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
-import { MatDialogModule } from '@angular/material'
+import { MatDialogModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
@@ -42,6 +43,8 @@ import { editcoursedialog } from './view-courses/view-courses.component'
 
 import { StudentsService } from './students.service';
 import { CoursesService } from './courses.service';
+import { BatchesDetailsComponent } from './batches-details/batches-details.component';
+
 
 const r : Routes = [
   
@@ -54,7 +57,8 @@ const r : Routes = [
   {path:"radika",component:RadikaComponent},
   {path:"",component:HomeDetailsComponent},
   {path:"addCourse",component:AddCourseComponent},
-  {path:"viewCourses",component:ViewCoursesComponent}
+  {path:"viewCourses",component:ViewCoursesComponent},
+  {path:"batchesDetails",component:BatchesDetailsComponent}
 ];
 
 @NgModule({
@@ -75,7 +79,8 @@ const r : Routes = [
     HomeDetailsComponent,
     AddCourseComponent,
     ViewCoursesComponent,
-    editcoursedialog
+    editcoursedialog,
+    BatchesDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +100,7 @@ const r : Routes = [
     MatExpansionModule,
     MatListModule,
     MatDialogModule,
+    MatTabsModule,
     FormsModule,
     RouterModule.forRoot(r)
   ],
