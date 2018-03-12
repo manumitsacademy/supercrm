@@ -10,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AddCourseComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
-
+  su;
   ngOnInit() {
   }
   courseForm = new FormGroup ({
@@ -19,21 +19,19 @@ export class AddCourseComponent implements OnInit {
     coursefee: new FormControl(),
     courseprereq: new FormControl(),
   });
-  su;
+ 
   Apikey= "?apiKey=ZShQtoghVlx_ZFHYiZa6I0dRCgdoGr--"
   addCourse(){
-    this.httpClient
-    .post("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/"+this.Apikey,this.courseForm.value)
+
+    this.httpClient.post("https://api.mlab.com/api/1/databases/test_db/collections/courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo",this.courseForm.value)
     .subscribe((d)=>{console.log(d)
-      if(d){
-        this.su=true;
-        setTimeout(()=>{
-          this.su=false;
-        },2000)
-        this.courseForm.reset();
-      }
+      this.su=true;
+    setTimeout(()=>{
+      this.su=false;
+    },2000)
+    this.courseForm.reset();
+
     });
-    //console.log(this.courseForm);
     
   }
 

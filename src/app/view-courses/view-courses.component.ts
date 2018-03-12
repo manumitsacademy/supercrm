@@ -1,20 +1,22 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
-import { FormControl, FormGroup,NgModel } from '@angular/forms';
+import { variable } from '@angular/compiler/src/output/output_ast';
+import { FormControl, FormGroup } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router } from '@angular/router';
 
-
+ 
 @Component({
   selector: 'app-view-courses',
   templateUrl: './view-courses.component.html',
-  styleUrls: ['./view-courses.component.css']
+   styleUrls: ['./view-courses.component.css']
 })
 export class ViewCoursesComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, public dialog: MatDialog,private router: Router) { }
   courses;
+  display;
     newcname: string;
     newcduration:number;
     newcfee: number;
@@ -23,12 +25,28 @@ export class ViewCoursesComponent implements OnInit {
   Apikey= "?apiKey=ZShQtoghVlx_ZFHYiZa6I0dRCgdoGr--"
   ngOnInit() {
     
-    this.httpClient.get("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/"+this.Apikey)
+    this.httpClient.get("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
                     .subscribe((d)=>{
                         this.courses=d;
-                        console.log(d);
+                        console.log("this is data"+d);
                     });
+                   
   }
+ 
+  deleteCourse(v)
+  {
+    console.log(v._id.$oid)
+    var url = "https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/"+v._id.$oid+"?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo"
+    console.log(url)
+    this.httpClient.delete(url).subscribe((d)=>{
+    console.log(d)
+   
+    this.httpClient.get("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/?apiKey=H8BSxibrCZLRkwy1C13ofhn-STVv_bxo")
+    .subscribe((d)=>{
+        this.courses=d;
+        console.log("this is data"+d);
+    });
+  });
   editcourse(course){
     let dialogRef=this.dialog.open(editcoursedialog,{
       width:'500px',
@@ -95,7 +113,6 @@ export class editcoursedialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }
 
 

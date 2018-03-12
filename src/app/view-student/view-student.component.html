@@ -1,0 +1,8 @@
+<div>
+  <ul>
+    <li *ngFor="let student of students">{{student.FirstName}}
+      <mat-icon (click)="deleteStudent(student)">delete</mat-icon>
+      <mat-icon (click)="editStudent(student)">create</mat-icon>
+    </li>
+  </ul>
+</div>
