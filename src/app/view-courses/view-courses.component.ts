@@ -2,10 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import { variable } from '@angular/compiler/src/output/output_ast';
-import { FormControl, FormGroup,NgModel } from '@angular/forms';
+import { FormControl, FormGroup, NgModel } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router } from '@angular/router';
-
 
  
 @Component({

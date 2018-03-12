@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,11 +36,8 @@ import { StudetsListComponent } from './studets-list/studets-list.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { HomeDetailsComponent } from './home-details/home-details.component';
 import { AddCourseComponent } from './add-course/add-course.component';
-import { ViewCoursesComponent } from './view-courses/view-courses.component';
+import { ViewCoursesComponent,editcoursedialog } from './view-courses/view-courses.component';
 import { AddStudentComponent } from './add-student/add-student.component';
-import { editcoursedialog } from './view-courses/view-courses.component'
-
-
 import { StudentsService } from './students.service';
 import { CoursesService } from './courses.service';
 import { ViewStudentComponent } from './view-student/view-student.component';
