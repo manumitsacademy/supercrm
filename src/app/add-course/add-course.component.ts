@@ -19,11 +19,22 @@ export class AddCourseComponent implements OnInit {
     coursefee: new FormControl(),
     courseprereq: new FormControl(),
   });
+  su;
+  Apikey= "?apiKey=ZShQtoghVlx_ZFHYiZa6I0dRCgdoGr--"
   addCourse(){
     this.httpClient
-    .post("https://api.mlab.com/api/1/databases/demo/collections/test?apiKey=-Ky8Wk0gH3HSexYngXpRI6Wg2itAnavf",this.courseForm.value)
-    .subscribe((d)=>{console.log(d)});
+    .post("https://api.mlab.com/api/1/databases/academy_crm/collections/Courses/"+this.Apikey,this.courseForm.value)
+    .subscribe((d)=>{console.log(d)
+      if(d){
+        this.su=true;
+        setTimeout(()=>{
+          this.su=false;
+        },2000)
+        this.courseForm.reset();
+      }
+    });
     //console.log(this.courseForm);
+    
   }
 
 }
